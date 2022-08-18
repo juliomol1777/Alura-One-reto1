@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Encriptador</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container-left">
+            <div class="container-logo">
+                <div class="logo">
+                    <div class="vector">
+                    </div>
+                </div>
+                <div class="card-texto">
+                    <input type="text" id="input"/>
+                </div>
+            </div>
+            <div class="frame1">
+                <div class="frame1-logo">
+                    <div class="frame1-group">
+                    </div>
+                </div>
+                <div class="frame1-text">
+                </div>
+            </div>
+            <div class="frame3">
+                <div class="frame3-boton frame3-boton-text">
+                    <button type="button" id="boton1">Encriptar</button>
+                </div>
+                <div class="frame3-boton2 frame3-boton-text2">
+                    <button type="button" id="boton2">Desencriptar</button>
+                </div>
+            </div>
+        </div>
+        <div class="container-right">
+            <div class="rectangle">
+                <div class="figura">
+                </div>
+                <div class="frame5">
+                    <div class="frame5-text">
+                    </div>
+                    <div class="frame5-input">
+                        <textarea id="txtArea"></textarea>
+                    </div>
+                    <div class="boton-copiar">
+                        <button type="button" id="boton-copiar">Copiar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var texto = document.querySelector("input");
+                /*
+                texto.onchange = function () {
+                    console.log(texto.value.length);
+                }
+                */
+                var nuevoTexto = "";
+                var contador = 0;
+                var textoDecript="";
+
+                /*Funcion para encriptar texto*/
+                document.getElementById('boton1').onclick = function () {
+
+                    for (let index = 0; index < texto.value.length; index++) {
+                        let letra = texto.value[index];
+                        if (letra == "a" || letra == "e" || letra == "i" ||
+                            letra == "o" ||letra == "u") {
+                            switch (letra) {
+                                case "a":
+                                    nuevoTexto += texto.value[index].replace(letra, "ai");
+                                    contador++;
+                                    break;
+                                case "e":
+                                    nuevoTexto += texto.value[index].replace(letra, "enter");
+                                    contador++;
+                                    break;
+                                case "i":
+                                    nuevoTexto += texto.value[index].replace(letra, "imes");
+                                    contador++;
+                                    break;
+                                case "o":
+                                    nuevoTexto += texto.value[index].replace(letra, "ober");
+                                    contador++;
+                                    break;
+                                case "u":
+                                    nuevoTexto += texto.value[index].replace(letra, "ufat");
+                                    contador++;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        else {
+                            nuevoTexto += texto.value[index];
+                        }
+
+                    }
+                    document.getElementById('txtArea').value = nuevoTexto;
+                }
+
+                /*Funcion para copiar texto al portapapeles*/
+                document.getElementById('boton-copiar').onclick = function updateClipboard(nuevoTexto) {
+                        navigator.clipboard.writeText(nuevoTexto).then(() => {
+                            console.log("copia exitosa");
+                        }, () => {
+                            console.log("fallo copia");
+                        });
+                }
+
+                /*Funcion para desencriptar texto*/
+                document.getElementById('boton2').onclick = function () {
+                    for (let index = 0; index < contador; index++) {
+                        //console.log(textoDecript);
+                        if(nuevoTexto.includes("ai")){
+                            textoDecript = nuevoTexto.replace("ai", "a");
+                        }
+                        if(nuevoTexto.includes("enter")){
+                            textoDecript = nuevoTexto.replace("enter", "e");
+                        }
+                        if(nuevoTexto.includes("imes")){
+                            textoDecript = nuevoTexto.replace("imes", "i");
+                        }
+                        if(nuevoTexto.includes("ober")){
+                            textoDecript = nuevoTexto.replace("ober", "o");
+                        }
+                        if(nuevoTexto.includes("ufat")){
+                            textoDecript = nuevoTexto.replace("ufat", "u");
+                        }
+                        nuevoTexto = textoDecript;
+                    }
+                    document.getElementById('txtArea').value = textoDecript;
+                }
+
+        </script>
+
+</body>
+
+</html>
