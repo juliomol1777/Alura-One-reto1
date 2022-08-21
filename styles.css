@@ -1,4 +1,4 @@
-/* Encriptador - 1 Desktop */
+/* Encriptador - Desktop */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,23 +6,18 @@
 }
 
 .container {
-    /*
-position: relative;*/
     width: 100vw;
     height: 100vh;
     display: flex;
-    /* Light blue/light-blue-100 */
-
-    background: #F3F5FC;
 }
 
 .container-left {
     width: 60%;
-    /*height: 100vh;*/
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    background: #8094db;
+    border: 2px solid #0250c9;
+    border-radius: 1rem;
 }
 
 .container-right {
@@ -30,8 +25,8 @@ position: relative;*/
     flex-direction: column;
     align-items: stretch;
     width: 40%;
-    /*height: 100vh;*/
-    background: #c8d883;
+    border: 2px solid #0250c9;
+    border-radius: 1rem;
 }
 
 /* Mobile */
@@ -42,21 +37,16 @@ position: relative;*/
 /* Tablet*/
 @media screen and (max-width: 768px) {
     .container {
-        /*
-    position: relative;*/
         flex-direction: column;
-        background: #F3F5FC;
     }
     
     .container-left {
         flex: 0 1 65%;
-        background: #8094db;
         width: 100%;
     }
     
     .container-right {
         flex: 0 1 35%;
-        background: #c8d883;
         width: 100%;
     }
     .figura{
@@ -65,19 +55,17 @@ position: relative;*/
     .frame5-text{
         display: none;
     }
+    .frame5-input{
+        display: block;
+    }
 }
 
 
 .container-logo{
-   /* display: flex;*/
     flex: 0 1 25%;
-    background: brown ;
 }
 /* Logo */
-
 .logo {
-    /* Auto layout */
-
     display: flex;
     align-items: flex-start;
     margin-top: 1rem;
@@ -86,22 +74,10 @@ position: relative;*/
     height: 48px;
 }
 /* Frame 1 */
-
 .frame1 {
-    
     flex: 0 1 50%;
     display: flex;
     justify-content: center;
-    /*
-    flex-direction: row;
-    align-items: center;
-    */
-
-    background: violet;
-    /*position: absolute;
-    width: 229px;
-    height: 18px;*/
-
 }
 
 
@@ -113,15 +89,12 @@ position: relative;*/
     font-weight: 400;
     font-size: 12px;
     line-height: 150%;
-    /* identical to box height, or 18px */
-
-
-    /* Gray/gray-400 */
-
     color: #495057;
-
     opacity: 0.8;
+}
 
+.areaBorde:hover{
+    border: 2px solid #0250c9;
 }
 
 /* Frame 3 */
@@ -130,20 +103,14 @@ position: relative;*/
     flex: 0 1 25%;
     display: flex;
     flex-direction: column;
-    /*
-    justify-content: center;
-    align-items: center;
-*/
 }
 
 .frame3-logo {
-    /* bi:exclamation-circle-fill */
     display: flex;
     justify-content: center;
 }
 
 .frame3-logo p{
-    color: red;
     margin-top: 1rem;
 }
 /* Vector */
@@ -152,13 +119,11 @@ position: relative;*/
     margin-top: 1rem;
 }
 
-
 .frame3-container{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 
 .frame3-boton {
 
@@ -194,7 +159,6 @@ position: relative;*/
     color: #fff;
   }
   
-
 .especial{
     background: #ffff24;
     color: #000;
@@ -205,45 +169,14 @@ position: relative;*/
     color: #fff;
 }
 
-/*
-.rectangle {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}*/
-
 /* Frame 5 */
 
 .frame5 {
-    /* Rectangle 1 */
-
-
-    /*position: absolute;*
-    /*height: 944px;*/
-    /*
-left: 1000px;
-top: 40px;*/
-
-    /* Auto layout */
-
     flex: 0 1 75%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: brown ;
-    /*
-flex-direction: column;
-align-items: flex-start;
-padding: 0px;
-gap: 16px;
-
-/*position: absolute;
-width: 336px;
-height: 122px;
-/*
-left: 1032px;
-top: 619px;*/
 }
 
 /* Ningún mensaje fue encontrado */
@@ -256,25 +189,12 @@ top: 619px;*/
     font-size: 24px;
     line-height: 120%;
     height: 2rem;
-    /* or 29px */
-
     text-align: center;
-
-    /* Gray/gray-500 */
-
     color: #343A40;
-
-
-    /* Inside auto layout
-
-flex: none;
-order: 0;
-align-self: stretch;
-flex-grow: 0;
- */
 }
 
 /* Ingresa el texto que desees encriptar o desencriptar. */
+
 
 .frame5-input {
     display: none;
@@ -283,22 +203,12 @@ flex-grow: 0;
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
-    /* or 24px */
-
     text-align: center;
-
-    /* Gray/gray-400 */
-
     color: #495057;
+}
 
-
-    /* Inside auto layout 
-
-flex: none;
-order: 1;
-align-self: stretch;
-flex-grow: 0;
-*/
+.borderF5{
+    border: 2px solid #0250c9;
 }
 
 .frame5-container{
@@ -310,12 +220,7 @@ flex-grow: 0;
 /* Muñeco */
 
 .figura {
-
-    /*position: absolu
-    /*
-left: 1032px;
-top: 283px;*/
-
+   
 }
 
 
