@@ -14,48 +14,48 @@
         <div class="container-left">
             <div class="container-logo">
                 <div class="logo">
-                    <div class="vector">
-                    </div>
-                </div>
-                <div class="card-texto">
-                    <input type="text" id="input"/>
+                    <img src="./Vector.png" alt="">
                 </div>
             </div>
             <div class="frame1">
-                <div class="frame1-logo">
-                    <div class="frame1-group">
-                    </div>
-                </div>
                 <div class="frame1-text">
+                    <textarea cols="35" rows="12" id="input"></textarea>
+                    <!--<input type="text" id="input"/>-->
                 </div>
             </div>
             <div class="frame3">
-                <div class="frame3-boton frame3-boton-text">
-                    <button type="button" id="boton1">Encriptar</button>
+                <div class="frame3-logo">
+                    <div class="frame3-group">
+                        <img src="./Vector (1).png" alt="">
+                    </div>
+                    <p>Ingrese texto en minuscula sin caracteres</p>
                 </div>
-                <div class="frame3-boton2 frame3-boton-text2">
-                    <button type="button" id="boton2">Desencriptar</button>
+                <div class="frame3-container">
+                    <button class="frame3-boton --primario" type="button" id="boton1">Encriptar</button>
+                
+                    <button class="frame3-boton especial" type="button" id="boton2">Desencriptar</button>
                 </div>
             </div>
         </div>
         <div class="container-right">
-            <div class="rectangle">
+            <div class="frame5">
                 <div class="figura">
+                    <img src="./Muñeco.png" alt="">
                 </div>
-                <div class="frame5">
-                    <div class="frame5-text">
-                    </div>
-                    <div class="frame5-input">
-                        <textarea id="txtArea"></textarea>
-                    </div>
-                    <div class="boton-copiar">
-                        <button type="button" id="boton-copiar">Copiar</button>
-                    </div>
+                <div class="frame5-text">
+                    <p>No se ha encontrado ningun elemento</p>
                 </div>
+                <div class="frame5-input">
+                    <textarea cols="35" rows="12" id="txtArea"></textarea>
+                </div>
+            </div>
+            <div class="frame5-container">
+                <button class="frame3-boton --primario" type="button" id="boton-copiar">Copiar</button>
             </div>
         </div>
         <script>
-            var texto = document.querySelector("input");
+            var texto = document.getElementById("input");
+            //var texto = document.querySelector("input");
                 /*
                 texto.onchange = function () {
                     console.log(texto.value.length);
