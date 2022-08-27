@@ -19,7 +19,8 @@
             </div>
             <div class="frame1">
                 <div class="frame1-text">
-                    <textarea class="areaBorde" cols="35" rows="12" id="input"></textarea>
+                    <textarea class="areaBorde" cols="35" rows="12" id="input">
+                    </textarea>
                     <!--<input type="text" id="input"/>-->
                 </div>
             </div>
@@ -32,7 +33,7 @@
                 </div>
                 <div class="frame3-container">
                     <button class="frame3-boton --primario" type="button" id="boton1">Encriptar</button>
-                
+
                     <button class="frame3-boton especial" type="button" id="boton2">Desencriptar</button>
                 </div>
             </div>
@@ -54,24 +55,26 @@
             </div>
         </div>
         <script>
-            var texto = document.getElementById("input");
-            //var texto = document.querySelector("input");
-                /*
-                texto.onchange = function () {
-                    console.log(texto.value.length);
-                }
-                */
-                var nuevoTexto = "";
-                var contador = 0;
-                var textoDecript="";
+            /*
+            texto.onchange = function () {
+                console.log(texto.value.length);
+            }
+            */
+            var nuevoTexto = "";
+            var contador = 0;
+            var textoDecript = "";
+            var textoEncript = "";
 
-                /*Funcion para encriptar texto*/
-                document.getElementById('boton1').onclick = function () {
+            /*Funcion para encriptar texto*/
+            document.getElementById('boton1').onclick = function () {
 
+                var texto = document.getElementById("input");
+
+                if (texto.value !== "") {
                     for (let index = 0; index < texto.value.length; index++) {
                         let letra = texto.value[index];
                         if (letra == "a" || letra == "e" || letra == "i" ||
-                            letra == "o" ||letra == "u") {
+                            letra == "o" || letra == "u") {
                             switch (letra) {
                                 case "a":
                                     nuevoTexto += texto.value[index].replace(letra, "ai");
@@ -102,50 +105,80 @@
                         }
 
                     }
-                    
+
                     document.getElementById('txtArea').value = nuevoTexto;
+                    textoEncript = nuevoTexto;
                     myFunction();
                 }
+            }
 
-                function myFunction() {
-                    document.getElementById('figura').style.display = "none";
-                    document.getElementById('frame5-text').style.display = "none";
-                    document.getElementById('frame5-input').style.display = "block";
-                }
+            function myFunction() {
+                document.getElementById('figura').style.display = "none";
+                document.getElementById('frame5-text').style.display = "none";
+                document.getElementById('frame5-input').style.display = "block";
+                document.getElementById('input').value = "";
+                nuevoTexto = "";
+            }
 
-                /*Funcion para copiar texto al portapapeles*/
-                
-                document.getElementById('boton-copiar').onclick = function updateClipboard(nuevoTexto) {
-                        navigator.clipboard.writeText(nuevoTexto).then(() => {
-                            console.log("copia exitosa");
-                        }, () => {
-                            console.log("fallo copia");
-                        });
-                }
-                
-                /*Funcion para desencriptar texto*/
-                document.getElementById('boton2').onclick = function () {
-                    for (let index = 0; index < contador; index++) {
-                        //console.log(textoDecript);
-                        if(nuevoTexto.includes("ai")){
-                            textoDecript = nuevoTexto.replace("ai", "a");
-                        }
-                        if(nuevoTexto.includes("enter")){
-                            textoDecript = nuevoTexto.replace("enter", "e");
-                        }
-                        if(nuevoTexto.includes("imes")){
-                            textoDecript = nuevoTexto.replace("imes", "i");
-                        }
-                        if(nuevoTexto.includes("ober")){
-                            textoDecript = nuevoTexto.replace("ober", "o");
-                        }
-                        if(nuevoTexto.includes("ufat")){
-                            textoDecript = nuevoTexto.replace("ufat", "u");
-                        }
-                        nuevoTexto = textoDecript;
+
+            /*Funcion para desencriptar texto*/
+            document.getElementById('boton2').onclick = function () {
+
+                for (let index = 0; index < contador; index++) {
+
+                    if (textoEncript.includes("ai")) {
+                        textoDecript = textoEncript.replace("ai", "a");
+                        textoEncript = textoDecript;
                     }
-                    document.getElementById('txtArea').value = textoDecript;
+                    if (textoEncript.includes("enter")) {
+                        textoDecript = textoEncript.replace("enter", "e");
+                        textoEncript = textoDecript;
+                    }
+                    if (textoEncript.includes("imes")) {
+                        textoDecript = textoEncript.replace("imes", "i");
+                        textoEncript = textoDecript;
+                    }
+                    if (textoEncript.includes("ober")) {
+                        textoDecript = textoEncript.replace("ober", "o");
+                        textoEncript = textoDecript;
+                    }
+                    if (textoEncript.includes("ufat")) {
+                        textoDecript = textoEncript.replace("ufat", "u");
+                        textoEncript = textoDecript;
+                    }
                 }
+                document.getElementById('txtArea').value = textoEncript;
+                textoEncript = "";
+            }
+
+            /*Funcion para copiar texto al portapapeles*/
+
+            document.getElementById('boton-copiar').onclick = function updateClipboard(nuevoTexto) {
+                navigator.clipboard.writeText(nuevoTexto).then(() => {
+                    console.log("copia exitosa");
+                }, () => {
+                    console.log("fallo copia");
+                });
+            }
+
+            /*
+        /////////////////////////////////////////////////////////////////
+        document.addEventListener("DOMContentLoaded", function(event) {
+        habilitar deshabilitar boton
+            var entra = document.getElementById("input");
+            //var estadoBoton = document.getElementById("boton2");
+            //estadoBoton.disabled = true;
+            document.getElementById("input").onchange= function stateHandle() {
+                console.log(entra.value);
+                /*
+                if (entra.value == "") {
+                    estadoBoton.disabled = true; 
+                } else {
+                    estadoBoton.disabled = false;
+                }
+                
+            }*/
+
 
         </script>
 
