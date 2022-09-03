@@ -152,33 +152,16 @@
             }
 
             /*Funcion para copiar texto al portapapeles*/
-
-            document.getElementById('boton-copiar').onclick = function updateClipboard(nuevoTexto) {
-                navigator.clipboard.writeText(nuevoTexto).then(() => {
+            var mensaje = document.getElementById('txtArea');
+            document.getElementById('boton-copiar').onclick = function updateClipboard() {
+                mensaje.select();
+                navigator.clipboard.writeText(mensaje.value).then(() => {
                     console.log("copia exitosa");
+                    mensaje.value ="";
                 }, () => {
                     console.log("fallo copia");
                 });
             }
-
-            /*
-        /////////////////////////////////////////////////////////////////
-        document.addEventListener("DOMContentLoaded", function(event) {
-        habilitar deshabilitar boton
-            var entra = document.getElementById("input");
-            //var estadoBoton = document.getElementById("boton2");
-            //estadoBoton.disabled = true;
-            document.getElementById("input").onchange= function stateHandle() {
-                console.log(entra.value);
-                /*
-                if (entra.value == "") {
-                    estadoBoton.disabled = true; 
-                } else {
-                    estadoBoton.disabled = false;
-                }
-                
-            }*/
-
 
         </script>
 
